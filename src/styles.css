@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #1f2d3d;
+  background: #fafbfc;
+  font-family: Inter, "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    linear-gradient(180deg, rgba(250, 251, 252, 0.96), rgba(255, 255, 255, 1) 38%),
+    #fafbfc;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+@layer components {
+  .focus-ring {
+    @apply rounded-sm outline-none transition focus-visible:ring-2 focus-visible:ring-academicGold focus-visible:ring-offset-2 focus-visible:ring-offset-navy;
+  }
+
+  .nav-link {
+    @apply relative inline-flex min-h-11 items-center whitespace-nowrap px-1 text-xs font-semibold uppercase tracking-[0.18em] text-white/80 outline-none transition hover:text-white focus-visible:text-academicGold;
+  }
+
+  .nav-link::after {
+    @apply absolute bottom-1 left-1/2 h-px w-0 -translate-x-1/2 bg-academicGold transition-all content-[''];
+  }
+
+  .nav-link-active {
+    @apply text-academicGold;
+  }
+
+  .nav-link-active::after {
+    @apply w-3/4;
+  }
+
+  .section-eyebrow {
+    @apply mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-academicBlue;
+  }
+
+  .section-title {
+    @apply font-serif text-4xl font-semibold leading-tight text-navy md:text-5xl;
+  }
+
+  .academic-card {
+    @apply rounded-2xl border border-slate-200 bg-white p-6 shadow-academic md:p-7;
+  }
+
+  .card-hover {
+    @apply transition duration-200 hover:-translate-y-1 hover:shadow-lift;
+  }
+
+  .social-button {
+    @apply inline-flex h-[50px] items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 text-sm font-semibold text-ink shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-academic focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-academicBlue focus-visible:ring-offset-2;
+  }
+
+  .small-button {
+    @apply inline-flex min-h-10 items-center rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-navy shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-academicBlue hover:shadow-academic focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-academicBlue focus-visible:ring-offset-2;
+  }
+
+  .small-button-primary {
+    @apply border-academicBlue bg-academicBlue text-white hover:border-navy hover:bg-navy;
+  }
+
+  .empty-state {
+    @apply rounded-2xl border border-dashed border-slate-300 bg-white px-6 py-10 text-center text-lg leading-8 text-muted shadow-sm;
+  }
+}
+
+@media (max-width: 420px) {
+  .social-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .section-title {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 640px) {
+  .social-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
