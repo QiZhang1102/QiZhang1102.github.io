@@ -34,6 +34,12 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Ensure PhD tracker is included in the Pages artifact
+        run: |
+          mkdir -p dist/client/phd-tracker
+          cp public/phd-tracker/index.html dist/client/phd-tracker/index.html
+          test -s dist/client/phd-tracker/index.html
+
       - name: Add nojekyll marker
         run: touch dist/client/.nojekyll
 
