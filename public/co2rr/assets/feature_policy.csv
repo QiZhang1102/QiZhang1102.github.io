@@ -1,0 +1,56 @@
+field,role,admitted_main_predictor,reason
+record_id,metadata,False,target_or_traceability_only
+study_id,metadata,False,target_or_traceability_only
+source_group_id,metadata,False,target_or_traceability_only
+raw_row,metadata,False,target_or_traceability_only
+source_worksheet,metadata,False,target_or_traceability_only
+raw_reference,metadata,False,target_or_traceability_only
+raw_reference_row,metadata,False,target_or_traceability_only
+source_block_marker,metadata,False,target_or_traceability_only
+smiles,metadata,False,target_or_traceability_only
+target,target,False,target_or_traceability_only
+reported_carbon_species_n,metadata,False,target_or_traceability_only
+reported_carbon_fe_json,metadata,False,target_or_traceability_only
+potential_rhe_v,conditions,True,pre_outcome_source_supported
+ph_category,conditions,True,pre_outcome_source_supported
+electrolyte,conditions,True,pre_outcome_source_supported
+reactor,conditions,True,pre_outcome_source_supported
+polymer_category,catalyst,True,pre_outcome_source_supported
+atom_C,catalyst,True,pre_outcome_source_supported
+atom_N,catalyst,True,pre_outcome_source_supported
+atom_O,catalyst,True,pre_outcome_source_supported
+atom_S,catalyst,True,pre_outcome_source_supported
+atom_F,catalyst,True,pre_outcome_source_supported
+atom_P,catalyst,True,pre_outcome_source_supported
+atom_Cl,catalyst,True,pre_outcome_source_supported
+atom_Br,catalyst,True,pre_outcome_source_supported
+atom_I,catalyst,True,pre_outcome_source_supported
+atom_metal,catalyst,True,pre_outcome_source_supported
+atom_total,catalyst,True,pre_outcome_source_supported
+condition_id,metadata,False,target_or_traceability_only
+raw:additive,raw_source,False,full_smiles_high_cardinality_proxy_excluded_use_atom_tokens
+raw:IsPolymerized,raw_source,False,used_only_via_documented_clean_mapping
+raw:FE(CO),raw_source,False,measured_outcome_or_aggregate_no_predictor
+raw:FE(HCOOH),raw_source,False,measured_outcome_or_aggregate_no_predictor
+raw:FE(C2H4),raw_source,False,measured_outcome_or_aggregate_no_predictor
+raw:FE(C2H6),raw_source,False,measured_outcome_or_aggregate_no_predictor
+raw:FE(C3H6),raw_source,False,measured_outcome_or_aggregate_no_predictor
+raw:FE(C2H5OH),raw_source,False,measured_outcome_or_aggregate_no_predictor
+raw:FE(Acetaldehyde)乙醛,raw_source,False,measured_outcome_or_aggregate_no_predictor
+raw:FE(CH3CO2H),raw_source,False,measured_outcome_or_aggregate_no_predictor
+raw:FE(C3H7OH),raw_source,False,measured_outcome_or_aggregate_no_predictor
+raw:FE(AllylOH),raw_source,False,measured_outcome_or_aggregate_no_predictor
+raw:FE(C3+),raw_source,False,measured_outcome_or_aggregate_no_predictor
+raw:FE(C2+),raw_source,False,measured_outcome_or_aggregate_no_predictor
+raw:FE(CH4),raw_source,False,measured_outcome_or_aggregate_no_predictor
+raw:FE(CH3OH),raw_source,False,measured_outcome_or_aggregate_no_predictor
+raw:FE(H2),raw_source,False,measured_outcome_or_aggregate_no_predictor
+raw:typical voltage (V vs RHE),raw_source,False,used_only_via_documented_clean_mapping
+raw:typical current density(mA/cm2),raw_source,False,measured_current_not_established_as_preset
+raw:typical pH,raw_source,False,used_only_via_documented_clean_mapping
+raw:typical electrolyte,raw_source,False,used_only_via_documented_clean_mapping
+raw:Unnamed: 21,raw_source,False,source_identity_or_unstructured_notes
+raw:cell type,raw_source,False,used_only_via_documented_clean_mapping
+raw:ref,raw_source,False,source_identity_or_unstructured_notes
+raw:Unnamed: 24,raw_source,False,source_identity_or_unstructured_notes
+raw:Unnamed: 25,raw_source,False,source_identity_or_unstructured_notes

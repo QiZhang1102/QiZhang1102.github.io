@@ -1,0 +1,39 @@
+# Evaluation protocol v1 — frozen before outer model evaluation
+
+Freeze date: 2026-11-09 (America/Los_Angeles client date). Config: configs/config.json. Input SHA and exact split assignments are in results/split_manifest.json. No model predictions or outer performance were inspected when these choices were written. Split coverage alone was inspected for feasibility. All four classes occur in every outer train and test fold.
+
+## Question and scope
+
+This is an evaluation study using a restricted public table of organically modified copper CO2 electroreduction. It tests transfer of modifier composition and recorded conditions, not arbitrary catalyst families. The target is the individual carbon species with the highest **explicitly reported numeric FE** among at least two recorded individual carbon species, with a unique positive maximum. It is not a claim of a sole/dominant physical product, and unreported species remain unknown. Aggregate C2+/C3+ and H2 do not compete in this carbon-species label. Input FE/current/target text, source identity, titles, dates, notes and full SMILES are prohibited model inputs.
+
+## Cohort and predictors
+
+Immutable Sheet1 has322 data rows. Primary:86 distinct recorded conditions from22 explicit DOI groups. The label order is C2H4,C2H5OH,CH4,CO. Full audited99conditions/23DOIs also include CH3CO2H(5/1DOI) and HCOOH(8/3DOIs); classes require >=10conditions and >=3DOIs. This coverage rule is set without outer scores. Excluded classes are not merged. Per-row exclusions and original workbook rows are retained. Conflicting labels at indistinguishable recorded conditions exclude the whole condition; consistent duplicates collapse with a trace map. One such duplicate was collapsed, no contradictory group remained. Source references propagate only within explicit workbook citation/numbered blocks; unidentified DOI groups are excluded.
+
+Catalyst features: explicit atom-token counts in the recorded modifier representation (C,N,O,S,F,P,Cl,Br,I,listed metals,total) and a broad polymer/MOF/COF category. These are lexical counts, not molecular formula descriptors or newly computed DFT. Copper is constant. Conditions: numeric source-reported RHE potential, qualitative pH, whitespace-normalized electrolyte and reactor category. No potential conversion, inferred pressure or missing concentration=0. Missingness is retained for training-fold imputation. Full input lists and types are frozen in config. All model/feature comparisons use exactly the same primary rows and assignments.
+
+## Outer splits and fixed budget
+
+One repeat, seed20261109, 3-fold StratifiedGroupKFold(shuffle=True). In random_condition, grouping uses recorded condition ID (study DOI + exact modifier representation + polymer category + available conditions); distinct conditions from a DOI may appear on both sides. Since consistent duplicates have collapsed, all86 retained condition IDs are unique. In study, grouping uses true DOI/source_group_id. No verified shared experimental source across different DOIs was identified; absence of such evidence cannot rule it out. No condition crosses either split. Test counts: random29/29/28; study30/31/25. These distributions are saved rather than reseeded to optimize scores. Both provide one OOF prediction per record; training fractions differ slightly.
+
+Models: most-frequent DummyClassifier once/protocol; LogisticRegression(C=1,max_iter=2000,lbfgs); RandomForest(150trees,min_samples_leaf=2,max_features=sqrt,n_jobs=1); HistGradientBoosting(max_iter=100,max_leaf_nodes=15,min_samples_leaf=5,l2=1). Seed fixed; CPU threadpool1. Tuning budget0; no test-based tuning/model selection. Each nonbaseline model runs catalyst,conditions,combined. Every fit creates a new Pipeline. Numeric median imputation (keep_empty_features=True) and StandardScaler; categorical constant missing token and dense OneHotEncoder(handle_unknown=ignore); all fit on its training fold only. No sampling/class weighting/feature selection.
+
+## Calibration eligibility and incomplete coverage
+
+Combined-feature LR/RF/HGB only: sigmoid CalibratedClassifierCV,ensemble=False, using explicit 3-fold source-disjoint cross-fitting inside the outer train, seed20261126. Every class requires >=3 outer-train source groups; every inner fit needs >=2 positive source groups/class and every calibration fold >=1, with all classes present on both sides. Complete pipelines are cloned per inner fit, then base estimator refits the full outer train. No outer test enters calibration. If infeasible, skip sigmoid for that outer fold with a saved reason; retain all uncalibrated OOF predictions.
+
+Training-side preflight found all3 random outer folds eligible; study fold0 ineligible and folds1/2 eligible. Thus study sigmoid covers56/86records, on an eligible subset only. Save these partial predictions and completion flags. Full-cohort metrics/plots exclude partial calibrated cohorts. The secondary calibration comparison restricts uncalibrated predictions to exactly the same record IDs as calibrated predictions. It is conditional on that subset and must not be described as full study-disjoint calibration validation. This decision precedes predictions.
+
+## Metrics, uncertainty and reliability
+
+Primary pooled macro-F1 over the fixed four classes (zero_division=0) and every class's recall; accuracy, precision/F1/confusion and record/study support accompany them. If a test class is absent in training, retain it and assign zero predicted probability in that class's globally aligned column; never drop that test record. Equal-study macro-F1 uses one global confusion matrix with row weight1/n_records_in_DOI; equal-study accuracy equals mean source accuracy. It is not mean per-paper F1.
+
+Log loss uses a stated1e-15 lower clip only when scoring; saved probabilities are unmodified. Brier=mean_i sum_k (p_ik -1[y_i=k])^2, no division by K, range0–2. Probabilities must be finite/nonnegative/sum1 and classes have fixed order. Top-label reliability uses ten fixed bins; ECE is descriptive and bin-dependent. Confidence–coverage/risk curves are exploratory outer-test descriptions; no operational threshold is selected.
+
+500 source-cluster bootstrap draws, seed20262100, sample entire DOI groups with replacement; report percentile95% intervals conditional on these saved OOF fits, without refitting. Model/feature/calibration comparisons reuse paired sampled sources and identical records. Partial calibration is paired only on its eligible record subset. Random-condition versus source-held-out differences are descriptive, from different training information; no significance or causal leakage claim. Fold dispersion is not an independent-experiment CI.
+
+## Prespecified error diagnostics and integrity
+
+Report reactor,qualitative pH,polymer category and input-missingness subgroups with record/DOI support; no mechanism/causal claim. All data are copper, so cross-family comparisons and general copper-vs-other inference are not applicable. Inspect per-source errors, equal-study scores, source concentration and descriptive removal of one source's fixed predictions for RF combined. These remove predictions without retraining and are sensitivity diagnostics only. No selection of a best model using outer outcomes.
+
+Save original record/DOI/condition/raw-row IDs, y/pred/probabilities, protocol/fold/repeat/seed/model/features/calibration/config hash, all outer/inner fitting IDs, warning/runtime logs, and completion flags. Check no group leakage, forbidden features, train-only preprocessing/calibration, trace counts and raw SHA, fixed probabilities, and metrics independently recomputed from predictions. Run the whole fixed benchmark into a clean result directory and compare prediction/split/metric hashes. Changes after freeze require a dated amendment; no silent attractive-score revisions.

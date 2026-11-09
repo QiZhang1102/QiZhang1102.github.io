@@ -1,0 +1,112 @@
+{
+  "protocol_version": "v1",
+  "seed": 20261109,
+  "target": "target",
+  "classes": [
+    "C2H4",
+    "C2H5OH",
+    "CH4",
+    "CO"
+  ],
+  "outer_folds": 3,
+  "outer_repeats": 1,
+  "feature_sets": {
+    "catalyst": [
+      "atom_C",
+      "atom_N",
+      "atom_O",
+      "atom_S",
+      "atom_F",
+      "atom_P",
+      "atom_Cl",
+      "atom_Br",
+      "atom_I",
+      "atom_metal",
+      "atom_total",
+      "polymer_category"
+    ],
+    "conditions": [
+      "potential_rhe_v",
+      "ph_category",
+      "electrolyte",
+      "reactor"
+    ],
+    "combined": [
+      "atom_C",
+      "atom_N",
+      "atom_O",
+      "atom_S",
+      "atom_F",
+      "atom_P",
+      "atom_Cl",
+      "atom_Br",
+      "atom_I",
+      "atom_metal",
+      "atom_total",
+      "polymer_category",
+      "potential_rhe_v",
+      "ph_category",
+      "electrolyte",
+      "reactor"
+    ]
+  },
+  "numeric_features": [
+    "atom_C",
+    "atom_N",
+    "atom_O",
+    "atom_S",
+    "atom_F",
+    "atom_P",
+    "atom_Cl",
+    "atom_Br",
+    "atom_I",
+    "atom_metal",
+    "atom_total",
+    "potential_rhe_v"
+  ],
+  "categorical_features": [
+    "polymer_category",
+    "ph_category",
+    "electrolyte",
+    "reactor"
+  ],
+  "forbidden_features": [
+    "target",
+    "study_id",
+    "source_group_id",
+    "condition_id",
+    "record_id",
+    "raw_row",
+    "source_worksheet",
+    "raw_reference",
+    "raw_reference_row",
+    "source_block_marker",
+    "smiles",
+    "reported_carbon_species_n",
+    "reported_carbon_fe_json",
+    "typical current density(mA/cm2)",
+    "year",
+    "title",
+    "authors",
+    "FE",
+    "delta_FE"
+  ],
+  "target_definition": "Unique positive maximum among at least two explicitly numeric reported individual carbon-product FE values; missing FE is unreported, H2 and aggregate C2+/C3+ excluded.",
+  "eligibility": {
+    "minimum_class_records": 10,
+    "minimum_class_doi_groups": 3,
+    "raw_sha256": "6b4277e0eb681dee284533854b467089395aa1957681f8ba6a09636e9c552793",
+    "main_rows": 86,
+    "main_studies": 22
+  },
+  "duplicate_policy": "DOI+exact modifier+polymer class+recorded conditions: exclude conflicting label groups, collapse consistent duplicate groups to first raw row.",
+  "model_selection": "Fixed small CPU models; no parameter search; all preprocessing/calibration training-side only.",
+  "calibration": "Training-only 3-fold source-group cross-fitting sigmoid when feasible; otherwise explicitly skip.",
+  "probability_class_order": [
+    "C2H4",
+    "C2H5OH",
+    "CH4",
+    "CO"
+  ],
+  "brier_definition": "Mean over records of sum over four classes of squared probability minus one-hot target; range 0 to 2."
+}

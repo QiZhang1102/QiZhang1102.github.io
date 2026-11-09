@@ -1,0 +1,271 @@
+{
+  "replays": 500,
+  "initial_conditions": 3,
+  "seed": 20261109,
+  "results": [
+    {
+      "cohort": "Li2023",
+      "candidates": 11,
+      "optimum_fe": 87.3,
+      "objective": "Acetate FE",
+      "primary_budget": 6,
+      "length_scale": 0.2,
+      "ei_minus_random_fe": 14.329,
+      "paired_replay_95_ci": [
+        12.893114999999998,
+        15.794274999999999
+      ],
+      "ei_wins": 0.452,
+      "ties": 0.548,
+      "primary_budget_metrics": [
+        {
+          "cohort": "Li2023",
+          "length_scale": 0.2,
+          "policy": "Random",
+          "budget": 6,
+          "mean_best_fe": 72.971,
+          "mean_regret": 14.329,
+          "optimum_hit_rate": 0.548
+        },
+        {
+          "cohort": "Li2023",
+          "length_scale": 0.2,
+          "policy": "GP mean",
+          "budget": 6,
+          "mean_best_fe": 87.20079999999997,
+          "mean_regret": 0.09919999999999998,
+          "optimum_hit_rate": 0.996
+        },
+        {
+          "cohort": "Li2023",
+          "length_scale": 0.2,
+          "policy": "GP-EI",
+          "budget": 6,
+          "mean_best_fe": 87.29999999999997,
+          "mean_regret": 0.0,
+          "optimum_hit_rate": 1.0
+        }
+      ]
+    },
+    {
+      "cohort": "Li2023",
+      "candidates": 11,
+      "optimum_fe": 87.3,
+      "objective": "Acetate FE",
+      "primary_budget": 6,
+      "length_scale": 0.35,
+      "ei_minus_random_fe": 14.329,
+      "paired_replay_95_ci": [
+        12.893114999999998,
+        15.794274999999999
+      ],
+      "ei_wins": 0.452,
+      "ties": 0.548,
+      "primary_budget_metrics": [
+        {
+          "cohort": "Li2023",
+          "length_scale": 0.35,
+          "policy": "Random",
+          "budget": 6,
+          "mean_best_fe": 72.971,
+          "mean_regret": 14.329,
+          "optimum_hit_rate": 0.548
+        },
+        {
+          "cohort": "Li2023",
+          "length_scale": 0.35,
+          "policy": "GP mean",
+          "budget": 6,
+          "mean_best_fe": 85.45439999999996,
+          "mean_regret": 1.8456,
+          "optimum_hit_rate": 0.928
+        },
+        {
+          "cohort": "Li2023",
+          "length_scale": 0.35,
+          "policy": "GP-EI",
+          "budget": 6,
+          "mean_best_fe": 87.29999999999997,
+          "mean_regret": 0.0,
+          "optimum_hit_rate": 1.0
+        }
+      ]
+    },
+    {
+      "cohort": "Li2023",
+      "candidates": 11,
+      "optimum_fe": 87.3,
+      "objective": "Acetate FE",
+      "primary_budget": 6,
+      "length_scale": 0.6,
+      "ei_minus_random_fe": 14.329,
+      "paired_replay_95_ci": [
+        12.893114999999998,
+        15.794274999999999
+      ],
+      "ei_wins": 0.452,
+      "ties": 0.548,
+      "primary_budget_metrics": [
+        {
+          "cohort": "Li2023",
+          "length_scale": 0.6,
+          "policy": "Random",
+          "budget": 6,
+          "mean_best_fe": 72.971,
+          "mean_regret": 14.329,
+          "optimum_hit_rate": 0.548
+        },
+        {
+          "cohort": "Li2023",
+          "length_scale": 0.6,
+          "policy": "GP mean",
+          "budget": 6,
+          "mean_best_fe": 84.38239999999999,
+          "mean_regret": 2.9175999999999993,
+          "optimum_hit_rate": 0.888
+        },
+        {
+          "cohort": "Li2023",
+          "length_scale": 0.6,
+          "policy": "GP-EI",
+          "budget": 6,
+          "mean_best_fe": 87.29999999999997,
+          "mean_regret": 0.0,
+          "optimum_hit_rate": 1.0
+        }
+      ]
+    },
+    {
+      "cohort": "Yang2022",
+      "candidates": 19,
+      "optimum_fe": 33.0,
+      "objective": "Ethylene FE",
+      "primary_budget": 8,
+      "length_scale": 0.2,
+      "ei_minus_random_fe": 3.39,
+      "paired_replay_95_ci": [
+        2.742,
+        4.057025
+      ],
+      "ei_wins": 0.404,
+      "ties": 0.466,
+      "primary_budget_metrics": [
+        {
+          "cohort": "Yang2022",
+          "length_scale": 0.2,
+          "policy": "Random",
+          "budget": 8,
+          "mean_best_fe": 27.639,
+          "mean_regret": 5.361,
+          "optimum_hit_rate": 0.444
+        },
+        {
+          "cohort": "Yang2022",
+          "length_scale": 0.2,
+          "policy": "GP mean",
+          "budget": 8,
+          "mean_best_fe": 31.69,
+          "mean_regret": 1.31,
+          "optimum_hit_rate": 0.802
+        },
+        {
+          "cohort": "Yang2022",
+          "length_scale": 0.2,
+          "policy": "GP-EI",
+          "budget": 8,
+          "mean_best_fe": 31.029,
+          "mean_regret": 1.971,
+          "optimum_hit_rate": 0.69
+        }
+      ]
+    },
+    {
+      "cohort": "Yang2022",
+      "candidates": 19,
+      "optimum_fe": 33.0,
+      "objective": "Ethylene FE",
+      "primary_budget": 8,
+      "length_scale": 0.35,
+      "ei_minus_random_fe": 4.479,
+      "paired_replay_95_ci": [
+        3.873975,
+        5.1290749999999985
+      ],
+      "ei_wins": 0.452,
+      "ties": 0.484,
+      "primary_budget_metrics": [
+        {
+          "cohort": "Yang2022",
+          "length_scale": 0.35,
+          "policy": "Random",
+          "budget": 8,
+          "mean_best_fe": 27.639,
+          "mean_regret": 5.361,
+          "optimum_hit_rate": 0.444
+        },
+        {
+          "cohort": "Yang2022",
+          "length_scale": 0.35,
+          "policy": "GP mean",
+          "budget": 8,
+          "mean_best_fe": 33.0,
+          "mean_regret": 0.0,
+          "optimum_hit_rate": 1.0
+        },
+        {
+          "cohort": "Yang2022",
+          "length_scale": 0.35,
+          "policy": "GP-EI",
+          "budget": 8,
+          "mean_best_fe": 32.118,
+          "mean_regret": 0.882,
+          "optimum_hit_rate": 0.832
+        }
+      ]
+    },
+    {
+      "cohort": "Yang2022",
+      "candidates": 19,
+      "optimum_fe": 33.0,
+      "objective": "Ethylene FE",
+      "primary_budget": 8,
+      "length_scale": 0.6,
+      "ei_minus_random_fe": 4.837,
+      "paired_replay_95_ci": [
+        4.250975,
+        5.470025
+      ],
+      "ei_wins": 0.498,
+      "ties": 0.464,
+      "primary_budget_metrics": [
+        {
+          "cohort": "Yang2022",
+          "length_scale": 0.6,
+          "policy": "Random",
+          "budget": 8,
+          "mean_best_fe": 27.639,
+          "mean_regret": 5.361,
+          "optimum_hit_rate": 0.444
+        },
+        {
+          "cohort": "Yang2022",
+          "length_scale": 0.6,
+          "policy": "GP mean",
+          "budget": 8,
+          "mean_best_fe": 33.0,
+          "mean_regret": 0.0,
+          "optimum_hit_rate": 1.0
+        },
+        {
+          "cohort": "Yang2022",
+          "length_scale": 0.6,
+          "policy": "GP-EI",
+          "budget": 8,
+          "mean_best_fe": 32.476,
+          "mean_regret": 0.524,
+          "optimum_hit_rate": 0.906
+        }
+      ]
+    }
+  ]
+}
